@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",         // Make sure the output is set to dist
+    "sourceMap": false,         // Optional: Disable source maps in production
+    "declaration": false,       // No need for declaration files in production
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "module": "commonjs",       // Ensure you're using commonjs
+    "target": "es2018"          // Ensure this matches the NestJS guidelines
+  },
+  "exclude": ["node_modules", "test", "dist", "**/*spec.ts"],
+  "include": ["src/**/*"]       // Make sure to include all source files
+}

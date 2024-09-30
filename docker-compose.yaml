@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  app:
+    image: backend:latest
+#    build: ./backend
+    ports:
+      - '3000:3000'  # Expose the app on port 3000
+    environment:
+      - MONGODB_URI=mongodb://host.docker.internal:27017/mydatabase  # MongoDB connection string
+      - JWT_SECRET=mySuperSecretKey                    # Hardcoded JWT secret (for testing)
+#    depends_on:
+#      - mongo
+#
+#  mongo:
+#    image: mongo:latest  # Use the official MongoDB image
+#    ports:
+#      - '27017:27017'  # Expose MongoDB on port 27017
+#    volumes:
+#      - mongo_data:/data/db  # Persist MongoDB data
+
+  frontend:
+    image: frontend:latest
+#    build:
+#      context: ./task-manager-frontend
+#      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+
+volumes:
+  mongo_data:  # Define a named volume for MongoDB data
