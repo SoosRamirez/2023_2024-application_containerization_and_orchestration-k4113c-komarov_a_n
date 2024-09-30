@@ -1,14 +1,12 @@
-```
-University: [ITMO University](https://itmo.ru/ru/)
-Faculty: [FICT](https://fict.itmo.ru)
-Course: [Application containerization and orchestration](https://github.com/itmo-ict-faculty/application-containerization-and-orchestration)
-Year: 2023/2024
-Group: K4113c
-Author: Komarov Alexey Nikolaevich
-Practice: practice1
-Date of create: 20.09.2022
-Date of finished: 31.09.2022
-```
+University: [ITMO University](https://itmo.ru/ru/)\
+Faculty: [FICT](https://fict.itmo.ru)\
+Course: [Application containerization and orchestration](https://github.com/itmo-ict-faculty/application-containerization-and-orchestration)/
+Year: 2023/2024\
+Group: K4113c\
+Author: Komarov Alexey Nikolaevich\
+Practice: practice1\
+Date of create: \
+Date of finished: \
 
 ## Описание
 Это первая практическая работа "Контейнеризация микросервисных приложений"
