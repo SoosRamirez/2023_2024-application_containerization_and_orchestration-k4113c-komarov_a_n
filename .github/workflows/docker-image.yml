@@ -28,7 +28,7 @@ jobs:
         npm run build
 
     - name: Build Docker image
-      run: docker build -t backend .
+      run: docker build -t backend ./backend
 
     - name: Log in to Docker Hub
       run: docker login -u "${{ secrets.DOCKER_LOGIN }}" -p "${{ secrets.DOCKER_PASSWORD }}"
