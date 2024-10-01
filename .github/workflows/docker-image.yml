@@ -37,7 +37,7 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
         
     - name: Tag Docker image
-      run: docker tag my-python-app "soosramirez/backend:latest"
+      run: docker tag backend "soosramirez/backend:latest"
 
     - name: Push Docker image to Docker Hub
       run: docker push "soosramirez/backend:latest"
