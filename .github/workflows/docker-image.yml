@@ -45,11 +45,12 @@ jobs:
     - name: Send email notification
       uses: dawidd6/action-send-mail@v3
       with:
-        server_address: smtp.gmail.com
-        server_port: 465
+        server_address: smtp.example.com
+        server_port: 587
         username: ${{ secrets.MAIL_LOGIN }}
         password: ${{ secrets.MAIL_PASSWORD }}
-        subject: 'GitHub Actions Pipeline Finished'
-        to: 'alex.komarov.2001@yandex.ru'
-        from: 'mrsoosramirez@gmail.com'
-        body: 'Your GitHub Actions pipeline has finished successfully.'
+        subject: GitHub Action - CI Pipeline Status
+        body: Your CI pipeline finished successfully!
+        to: alex.komarov.2001@yandex.ru
+        from: mrsoosramirez@gmail.com
+        content_type: text/plain
