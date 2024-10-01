@@ -2,10 +2,24 @@
   "name": "backend",
   "version": "1.0.0",
   "scripts": {
+    "lint": "eslint .",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "build": "tsc -p tsconfig.build.json",
     "start:prod": "node dist/main.js"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint",
+      "cspell -c cspell.json --no-progress /*.ts"
+    ],
+    "*.js": [
+      "eslint",
+      "cspell -c cspell.json --no-progress /*.js"
+    ],
+    "*.md": [
+      "cspell -c cspell.json --no-progress /*.md"
+    ]
   },
   "dependencies": {
     "@nestjs/config": "^3.2.3",
@@ -26,6 +40,9 @@
     "@types/bcrypt": "^5.0.2",
     "@types/express": "^5.0.0",
     "@types/node": "^22.7.4",
-    "@types/passport-jwt": "^4.0.1"
+    "@types/passport-jwt": "^4.0.1",
+    "eslint": "^9.11.1",
+    "globals": "^15.9.0",
+    "typescript-eslint": "^8.8.0"
   }
 }
