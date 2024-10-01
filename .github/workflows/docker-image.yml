@@ -1,0 +1,52 @@
+name: lint, build Docker image, and push to Docker Hub
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: '21.7.1'
+        
+    - name: npm install, lint and build
+      run: |
+        cd backend
+        npm install
+        npm run lint
+        npm run build
+
+    - name: Build Docker image
+      run: docker build -t backend .
+
+    - name: Log in to Docker Hub
+      run: docker login -u "${{ secrets.DOCKER_LOGIN }}" -p "${{ secrets.DOCKER_PASSWORD }}"
+
+    - name: Tag Docker image
+      run: docker tag my-python-app "soosramirez/backend:latest"
+
+    - name: Push Docker image to Docker Hub
+      run: docker push "soosramirez/backend:latest"
+
+    - name: Send email notification
+      uses: dawidd6/action-send-mail@v2
+      with:
+        server_address: smtp.gmail.com
+        server_port: 587
+        username: ${{ secrets.MAIL_LOGIN }}
+        password: ${{ secrets.MAIL_PASSWORD }}
+        subject: 'GitHub Actions Pipeline Finished'
+        to: 'alex.komarov.2001@yandex.ru'
+        from: 'mrsoosramirez@gmail.com'
+        body: 'Your GitHub Actions pipeline has finished successfully.'
